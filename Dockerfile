@@ -13,6 +13,7 @@ RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 
+RUN apt-get update -y
 RUN apt-get install -y openssh-server
 RUN sed -i '0,/PasswordAuthentication no/s//PasswordAuthentication yes/' /etc/ssh/sshd_config
 RUN echo  "root:unix"|chpasswd
